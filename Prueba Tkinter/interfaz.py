@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 # hola mundo jajajaja
+#ola k ase :v
 root = tk.Tk()
 root.title("Forest")
 root.option_add("*tearOff", False) # This is always a good idea
