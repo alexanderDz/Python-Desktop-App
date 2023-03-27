@@ -29,10 +29,26 @@ def abrir_orden_trabajo():
 boton1 = ttk.Button(ventana1, text="Orden de trabajo", style="Accent.TButton", width=25, command=abrir_orden_trabajo)
 boton1.grid(row=0, column=0, padx=5, pady=10, sticky="nsew")
 
-boton2 = ttk.Button(ventana1, text="Nomina semanal", style="Accent.TButton", width=25)
+
+def abrir_nomina():
+    ventana_nomina = tk.Toplevel(ventana1)
+    ventana_nomina.title("Nomina semanal")
+    ventana_nomina.geometry("400x400")
+    etiqueta_nomina = ttk.Label(ventana_nomina, text="Esta es la ventana de nomina")
+    etiqueta_nomina.pack(padx=20, pady=20)
+
+boton2 = ttk.Button(ventana1, text="Nomina semanal", style="Accent.TButton", width=25, command=abrir_nomina)
 boton2.grid(row=0, column=1, padx=5, pady=10, sticky="nsew")
 
-boton3 = ttk.Button(ventana1, text="Administracion de inventario", style="Accent.TButton", width=25)
+
+def abrir_inventario():
+    ventana_inventario = tk.Toplevel(ventana1)
+    ventana_inventario.title("Administracion de inventario")
+    ventana_inventario.geometry("400x400")
+    etiqueta_inventario = ttk.Label(ventana_inventario, text="Esta es la ventana de inventario")
+    etiqueta_inventario.pack(padx=20, pady=20)
+
+boton3 = ttk.Button(ventana1, text="Administracion de inventario", style="Accent.TButton", width=25, command=abrir_inventario)
 boton3.grid(row=0, column=2, padx=5, pady=10, sticky="nsew")
 
 boton4 = ttk.Button(ventana1, text="Consultas", style="Accent.TButton", width=25)
