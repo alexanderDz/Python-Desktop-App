@@ -12,16 +12,21 @@ ventana1.tk.call("source", "forest-light.tcl")
 # Set the theme with the theme_use method
 style.theme_use("forest-light")
 
-
 # Definir el título de la ventana
 ventana1.title("Mi aplicación")
 
 # Definir las dimensiones de la ventana
 ventana1.geometry("800x500")
 
-# Crear una etiqueta en la ventana
+#Botones principales
+def abrir_orden_trabajo():
+    ventana_orden_trabajo = tk.Toplevel(ventana1)
+    ventana_orden_trabajo.title("Orden de trabajo")
+    ventana_orden_trabajo.geometry("400x400")
+    etiqueta_orden_trabajo = ttk.Label(ventana_orden_trabajo, text="Esta es la ventana de orden de trabajo")
+    etiqueta_orden_trabajo.pack(padx=20, pady=20)
 
-boton1 = ttk.Button(ventana1, text="Orden de trabajo", style="Accent.TButton", width=25)
+boton1 = ttk.Button(ventana1, text="Orden de trabajo", style="Accent.TButton", width=25, command=abrir_orden_trabajo)
 boton1.grid(row=0, column=0, padx=5, pady=10, sticky="nsew")
 
 boton2 = ttk.Button(ventana1, text="Nomina semanal", style="Accent.TButton", width=25)
@@ -33,7 +38,7 @@ boton3.grid(row=0, column=2, padx=5, pady=10, sticky="nsew")
 boton4 = ttk.Button(ventana1, text="Consultas", style="Accent.TButton", width=25)
 boton4.grid(row=1, column=0, padx=5, pady=10, sticky="nsew")
 
-
+#Agregando resposibidad de la app
 for i in range(ventana1.grid_size()[0]):
     ventana1.grid_columnconfigure(i, weight=1)
 
