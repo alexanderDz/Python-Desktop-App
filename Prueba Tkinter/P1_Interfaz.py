@@ -26,7 +26,12 @@ ventana1.geometry("800x500")
 
 #Botones principales
 
+cliente_id=0
 def abrir_cliente():
+
+    global cliente_id
+    cliente_id += 1
+
     ventana_cliente = tk.Toplevel(ventana1)
     ventana_cliente.title("Registra cliente")
     ventana_cliente.geometry("400x400")
@@ -34,6 +39,8 @@ def abrir_cliente():
     #Formulario
     formulario=ttk.Frame(ventana_cliente)
     formulario.grid(padx=20, pady=20)
+
+    
 
     #Etiquetas
     ttk.Label(formulario, text="ID Cliente").grid(column=0, row=0, padx=5, pady=5)
@@ -46,6 +53,7 @@ def abrir_cliente():
 
 
     #Entradas de texto
+    id_cliente = tk.StringVar(value=int(cliente_id))
     nombre = tk.StringVar()
     apellido = tk.StringVar()
     celular = tk.StringVar()
@@ -53,6 +61,7 @@ def abrir_cliente():
     direccion = tk.StringVar()
     identifiaccion = tk.StringVar()
     
+    ttk.Label(formulario, textvariable=id_cliente).grid(column=1, row=0, padx=5, pady=5)
     ttk.Entry(formulario, textvariable=nombre).grid(column=1, row=1, padx=5, pady=5)
     ttk.Entry(formulario, textvariable= apellido).grid(column=1, row=2, padx=5, pady=5)
     ttk.Entry(formulario, textvariable=celular).grid(column=1, row=3, padx=5, pady=5)
