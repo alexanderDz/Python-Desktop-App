@@ -136,7 +136,7 @@ def abrir_orden_trabajo():
     ventana_orden_trabajo.mainloop()
 
 boton1 = ttk.Button(ventana1, text="Orden de trabajo", style="Accent.TButton", width=25, command=abrir_orden_trabajo)
-boton1.grid(row=0, column=1, padx=5, pady=10, sticky="nsew")
+boton1.grid(row=1, column=0, padx=5, pady=10, sticky="nsew")
 
 
 def abrir_nomina():
@@ -147,7 +147,7 @@ def abrir_nomina():
     etiqueta_nomina.pack(padx=20, pady=20)
 
 boton2 = ttk.Button(ventana1, text="Nomina semanal", style="Accent.TButton", width=25, command=abrir_nomina)
-boton2.grid(row=0, column=2, padx=5, pady=10, sticky="nsew")
+boton2.grid(row=1, column=1, padx=5, pady=10, sticky="nsew")
 
 
 def abrir_inventario():
@@ -158,10 +158,17 @@ def abrir_inventario():
     etiqueta_inventario.pack(padx=20, pady=20)
 
 boton3 = ttk.Button(ventana1, text="Administracion de inventario", style="Accent.TButton", width=25, command=abrir_inventario)
-boton3.grid(row=0, column=3, padx=5, pady=10, sticky="nsew")
+boton3.grid(row=2, column=1, padx=5, pady=10, sticky="nsew")
 
-boton4 = ttk.Button(ventana1, text="Consultas", style="Accent.TButton", width=25)
-boton4.grid(row=1, column=0, padx=5, pady=10, sticky="nsew")
+def abrir_consultas():
+    ventana_inventario = tk.Toplevel(ventana1)
+    ventana_inventario.title("Consultas")
+    ventana_inventario.geometry("400x400")
+    etiqueta_inventario = ttk.Label(ventana_inventario, text="Esta es la ventana de consultas")
+    etiqueta_inventario.pack(padx=20, pady=20)
+
+boton4 = ttk.Button(ventana1, text="Consultas", style="Accent.TButton", width=25, command=abrir_consultas)
+boton4.grid(row=2, column=0, padx=5, pady=10, sticky="nsew")
 
 #Agregando resposibidad de la app
 for i in range(ventana1.grid_size()[0]):
@@ -189,3 +196,5 @@ ventana1.geometry('{}x{}+{}+{}'.format(ancho, alto, x, y))
 
 # Mostrar la ventana
 ventana1.mainloop()
+
+
