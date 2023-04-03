@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter.font import BOLD
 import util.generic as utl
+from SQL.funSQL import *
+
 
 def area():
     ventana_area = tk.Toplevel()
@@ -24,6 +26,6 @@ def area():
     ttk.Entry(formulario, textvariable = nombre).grid(column=1, row=0, padx=15, pady=15)
     ttk.Entry(formulario, textvariable = porcentaje).grid(column=1, row=1, padx=15, pady=15)
 
-    ttk.Button(formulario, text = "Guardar").grid(column=1, row=2, padx=5, pady=5)
+    ttk.Button(formulario, text = "Guardar", command=ejecutar_query).grid(column=1, row=2, padx=5, pady=5)
 
     return ventana_area.mainloop()
