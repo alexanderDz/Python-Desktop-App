@@ -8,7 +8,7 @@ def abrir_orden_trabajo():
     ventana_orden_trabajo = tk.Toplevel()
     ventana_orden_trabajo.title("Orden de trabajo")
     ventana_orden_trabajo.geometry("450x450")
-
+    utl.centrar_ventana(ventana_orden_trabajo,450,450)
     #Formulario
     formulario=ttk.Frame(ventana_orden_trabajo)
     formulario.grid(padx = 20, pady = 20)

@@ -4,7 +4,7 @@ from tkinter.font import BOLD
 import util.generic as utl
 from screens.screen_master import masterPanel
 from forms.ordenTrabajo import abrir_orden_trabajo
-
+from forms.area import area
 
 class app:
     
@@ -67,7 +67,7 @@ class app:
         boton5 = ttk.Button(frame_botonesS, text="Proveedores", style="Accent.TButton", width=25  )
         boton5.grid(row=4, column=0, padx=25, pady=15, sticky="nsew")
 
-        boton6 = ttk.Button(frame_botonesS, text="Areas", style="Accent.TButton", width=25  )
+        boton6 = ttk.Button(frame_botonesS, text="Areas", style="Accent.TButton", width=25, command=area )
         boton6.grid(row=5, column=0, padx=25, pady=15, sticky="nsew")
 
         self.ventana.mainloop()
