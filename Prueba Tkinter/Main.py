@@ -26,64 +26,6 @@ ventana1.geometry("800x500")
 
 #Botones principales
 
-cliente_id=0
-def abrir_cliente():
-
-    global cliente_id
-    cliente_id += 1
-
-    ventana_cliente = tk.Toplevel(ventana1)
-    ventana_cliente.title("Registra cliente")
-    ventana_cliente.geometry("400x400")
-
-    #Formulario
-    formulario=ttk.Frame(ventana_cliente)
-    formulario.grid(padx=20, pady=20)
-
-    
-
-    #Etiquetas
-    ttk.Label(formulario, text="ID Cliente").grid(column=0, row=0, padx=5, pady=5)
-    ttk.Label(formulario, text="Nombre").grid(column=0, row=1, padx=5, pady=5)
-    ttk.Label(formulario, text="Apellido").grid(column=0, row=2, padx=5, pady=5)
-    ttk.Label(formulario, text="Celular").grid(column=0, row=3, padx=5, pady=5)
-    ttk.Label(formulario, text="Correo Electronico").grid(column=0, row=4, padx=5, pady=5)
-    ttk.Label(formulario, text="Direccion").grid(column=0, row=5, padx=5, pady=5)
-    ttk.Label(formulario, text="Documneto de identidad").grid(column=0, row=6, padx=5, pady=5)
-
-
-    #Entradas de texto
-    id_cliente = tk.StringVar(value=int(cliente_id))
-    nombre = tk.StringVar()
-    apellido = tk.StringVar()
-    celular = tk.StringVar()
-    correo = tk.StringVar()
-    direccion = tk.StringVar()
-    identifiaccion = tk.StringVar()
-    
-    ttk.Label(formulario, textvariable=id_cliente).grid(column=1, row=0, padx=5, pady=5)
-    ttk.Entry(formulario, textvariable=nombre).grid(column=1, row=1, padx=5, pady=5)
-    ttk.Entry(formulario, textvariable= apellido).grid(column=1, row=2, padx=5, pady=5)
-    ttk.Entry(formulario, textvariable=celular).grid(column=1, row=3, padx=5, pady=5)
-    ttk.Entry(formulario, textvariable= correo).grid(column=1, row=4, padx=5, pady=5)
-    ttk.Entry(formulario, textvariable=direccion).grid(column=1, row=5, padx=5, pady=5)
-    ttk.Entry(formulario, textvariable= identifiaccion).grid(column=1, row=6, padx=5, pady=5)
-
-    #Boton de enviar
-    ttk.Button(formulario, text="Enviar").grid(column=1, row=7, padx=5, pady=5)
-
-
-    # Establecer el foco en el primer campo
-    ttk.Entry(formulario, textvariable=nombre).focus()
-
-    ventana_cliente.mainloop()
-
-
-boton0 = ttk.Button(ventana1, text="Agregar cliente", style="Accent.TButton", width=25, command=abrir_cliente)
-boton0.grid(row=0, column=0, padx=5, pady=10, sticky="nsew")
-
-
-
 def abrir_orden_trabajo():
     ventana_orden_trabajo = tk.Toplevel(ventana1)
     ventana_orden_trabajo.title("Orden de trabajo")
@@ -131,7 +73,7 @@ def abrir_orden_trabajo():
 
 
     # Establecer el foco en el primer campo
-    ttk.Entry(formulario, textvariable=nombre).focus()
+    ttk.Entry(formulario, textvariable= nombre).focus()
 
     ventana_orden_trabajo.mainloop()
 
@@ -170,6 +112,35 @@ def abrir_consultas():
 boton4 = ttk.Button(ventana1, text="Consultas", style="Accent.TButton", width=25, command=abrir_consultas)
 boton4.grid(row=2, column=0, padx=5, pady=10, sticky="nsew")
 
+##########################################################################
+
+frame2 = ttk.Frame(ventana1)
+frame2.grid(row=1, column=3, rowspan=2, padx=10, pady=10, sticky="nsew")
+
+# crear los botones adicionales en el nuevo frame
+boton5 = ttk.Button(frame2, text="Botón 9", width=25)
+boton5.grid(row=1, column=3, pady=10, sticky="nsew")
+
+boton6 = ttk.Button(frame2, text="Botón 10", width=25)
+boton6.grid(row=2, column=3, pady=20, sticky="nsew")
+
+boton7 = ttk.Button(frame2, text="Botón 11", width=25)
+boton7.grid(row=3, column=3, pady=20, sticky="nsew")
+
+boton8 = ttk.Button(frame2, text="Botón 12", width=25)
+boton8.grid(row=4, column=3, pady=20, sticky="nsew")
+
+boton9 = ttk.Button(frame2, text="Botón 13", width=25)
+boton9.grid(row=5, column=3, pady=20, sticky="nsew")
+
+boton10 = ttk.Button(frame2, text="Botón 14", width=25)
+boton10.grid(row=6, column=3, pady=20, sticky="nsew")
+
+
+############################################################3
+
+
+
 #Agregando resposibidad de la app
 for i in range(ventana1.grid_size()[0]):
     ventana1.grid_columnconfigure(i, weight=1)
@@ -177,7 +148,7 @@ for i in range(ventana1.grid_size()[0]):
 for i in range(ventana1.grid_size()[1]):
     ventana1.grid_rowconfigure(i, weight=1)
 
-boton0.grid(padx=20, pady=20)
+
 boton1.grid(padx=20, pady=20)
 boton2.grid(padx=20, pady=20)
 boton3.grid(padx=20, pady=20)

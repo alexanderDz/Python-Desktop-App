@@ -1,36 +1,55 @@
-import tkinter as tk
-from tkinter import ttk
+cliente_id=0
+def abrir_cliente():
 
-# Crear la ventana principal
-ventana = tk.Tk()
-ventana.title("Mi formulario")
+    global cliente_id
+    cliente_id += 1
 
-# Crear un marco para el formulario
-formulario = ttk.Frame(ventana, padding="20 20 20 20")
-formulario.grid(column=0, row=0, sticky=(tk.N, tk.W, tk.E, tk.S))
-formulario.columnconfigure(0, weight=1)
-formulario.rowconfigure(0, weight=1)
+    ventana_cliente = tk.Toplevel(ventana1)
+    ventana_cliente.title("Registra cliente")
+    ventana_cliente.geometry("400x400")
 
-# Crear etiquetas y campos de entrada para el formulario
-etiqueta_nombre = ttk.Label(formulario, text="Nombre:")
-etiqueta_nombre.grid(column=1, row=1, sticky=tk.W)
+    #Formulario
+    formulario=ttk.Frame(ventana_cliente)
+    formulario.grid(padx=20, pady=20)
 
-campo_nombre = ttk.Entry(formulario)
-campo_nombre.grid(column=2, row=1, sticky=(tk.W, tk.E))
+    
 
-etiqueta_correo = ttk.Label(formulario, text="Correo electrónico:")
-etiqueta_correo.grid(column=1, row=2, sticky=tk.W)
+    #Etiquetas
+    ttk.Label(formulario, text="ID Cliente").grid(column=0, row=0, padx=5, pady=5)
+    ttk.Label(formulario, text="Nombre").grid(column=0, row=1, padx=5, pady=5)
+    ttk.Label(formulario, text="Apellido").grid(column=0, row=2, padx=5, pady=5)
+    ttk.Label(formulario, text="Celular").grid(column=0, row=3, padx=5, pady=5)
+    ttk.Label(formulario, text="Correo Electronico").grid(column=0, row=4, padx=5, pady=5)
+    ttk.Label(formulario, text="Direccion").grid(column=0, row=5, padx=5, pady=5)
+    ttk.Label(formulario, text="Documneto de identidad").grid(column=0, row=6, padx=5, pady=5)
 
-campo_correo = ttk.Entry(formulario)
-campo_correo.grid(column=2, row=2, sticky=(tk.W, tk.E))
 
-# Crear un botón para enviar el formulario
-boton_enviar = ttk.Button(formulario, text="Enviar")
-boton_enviar.grid(column=2, row=3, sticky=tk.E)
+    #Entradas de texto
+    id_cliente = tk.StringVar(value=int(cliente_id))
+    nombre = tk.StringVar()
+    apellido = tk.StringVar()
+    celular = tk.StringVar()
+    correo = tk.StringVar()
+    direccion = tk.StringVar()
+    identifiaccion = tk.StringVar()
+    
+    ttk.Label(formulario, textvariable=id_cliente).grid(column=1, row=0, padx=5, pady=5)
+    ttk.Entry(formulario, textvariable=nombre).grid(column=1, row=1, padx=5, pady=5)
+    ttk.Entry(formulario, textvariable= apellido).grid(column=1, row=2, padx=5, pady=5)
+    ttk.Entry(formulario, textvariable=celular).grid(column=1, row=3, padx=5, pady=5)
+    ttk.Entry(formulario, textvariable= correo).grid(column=1, row=4, padx=5, pady=5)
+    ttk.Entry(formulario, textvariable=direccion).grid(column=1, row=5, padx=5, pady=5)
+    ttk.Entry(formulario, textvariable= identifiaccion).grid(column=1, row=6, padx=5, pady=5)
 
-# Agregar espaciado al formulario
-for child in formulario.winfo_children():
-    child.grid_configure(padx=5, pady=5)
+    #Boton de enviar
+    ttk.Button(formulario, text="Enviar").grid(column=1, row=7, padx=5, pady=5)
 
-# Mostrar la ventana
-ventana.mainloop()
+
+    # Establecer el foco en el primer campo
+    ttk.Entry(formulario, textvariable=nombre).focus()
+
+    ventana_cliente.mainloop()
+
+
+boton0 = ttk.Button(ventana1, text="Agregar cliente", style="Accent.TButton", width=25, command=abrir_cliente)
+boton0.grid(row=0, column=0, padx=5, pady=10, sticky="nsew")
