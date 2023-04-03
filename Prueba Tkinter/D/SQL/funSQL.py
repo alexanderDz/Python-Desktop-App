@@ -6,7 +6,7 @@ def conectarDB():
         cnx = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="mysql12345",
+            password="holamundo",
             database="multiservicios"
         )
     except mysql.connector.Error as err:
