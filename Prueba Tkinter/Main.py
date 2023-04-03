@@ -73,7 +73,7 @@ def abrir_orden_trabajo():
 
 
     # Establecer el foco en el primer campo
-    ttk.Entry(formulario, textvariable=nombre).focus()
+    ttk.Entry(formulario, textvariable= nombre).focus()
 
     ventana_orden_trabajo.mainloop()
 
