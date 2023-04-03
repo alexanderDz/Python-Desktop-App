@@ -26,6 +26,9 @@ def area():
     ttk.Entry(formulario, textvariable = nombre).grid(column=1, row=0, padx=15, pady=15)
     ttk.Entry(formulario, textvariable = porcentaje).grid(column=1, row=1, padx=15, pady=15)
 
-    ttk.Button(formulario, text = "Guardar", command=ejecutar_query).grid(column=1, row=2, padx=5, pady=5)
+
+    query = "INSERT INTO `multiservicios`.`area` (`Area_ID`, `Nombre_Area`, `Porcentaje_comision`) VALUES (%s, %s, %s)"
+
+    ttk.Button(formulario, text = "Guardar", command=lambda: ejecutar_query(query, (1, nombre.get(), porcentaje.get()), "INSERT")).grid(column=1, row=2, padx=5, pady=5)
 
     return ventana_area.mainloop()

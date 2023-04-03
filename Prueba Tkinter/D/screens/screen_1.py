@@ -69,7 +69,7 @@ class app:
         boton5 = ttk.Button(frame_botonesS, text="Proveedores", style="Accent.TButton", width=25  )
         boton5.grid(row=4, column=0, padx=25, pady=15, sticky="nsew")
 
-        boton6 = ttk.Button(frame_botonesS, text="Areas", style="Accent.TButton", width=25, command=(area, conectarDB)  )
+        boton6 = ttk.Button(frame_botonesS, text="Areas", style="Accent.TButton", width=25, command=lambda: (area(), conectarDB()))
         boton6.grid(row=5, column=0, padx=25, pady=15, sticky="nsew")
 
         self.ventana.mainloop()
