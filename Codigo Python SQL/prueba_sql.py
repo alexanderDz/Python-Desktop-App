@@ -7,42 +7,39 @@ def conectar():
             host="localhost",
             user="root",
             password="mysql12345",
-            database="test_2"
+            database="multiservicios"
         )
         return conexion
     except mysql.connector.Error as error:
         print("Error de conexión: {}".format(error))
 
-def crear_ventana():
-    ventana = tk.Tk()
-
-    etiqueta_nombre = tk.Label(ventana, text="Nombre:")
-    etiqueta_nombre.pack()
-
-    entrada_nombre = tk.Entry(ventana)
-    entrada_nombre.pack()
-
-    boton_insertar = tk.Button(
-        ventana,
-        text="Insertar",
-        command=lambda: insertar_datos(entrada_nombre.get())
-    )
-    boton_insertar.pack()
-
-    return ventana
-
-def insertar_datos(nombre):
+def consultar_datos():
     conexion = conectar()
     cursor = conexion.cursor()
 
-    sql = "INSERT INTO usuarios (nombre) VALUES (%s)"
-    valores = (nombre,)
+    # Realizar la consulta
+    query = ("INSERT INTO `multiservicios`.`area` (`Area_ID`, `Nombre_Area`, `Porcentaje_comision`) VALUES ('1', 'MECANICA', '0.15')")
 
-    cursor.execute(sql, valores)
+    cursor.execute(query)
     conexion.commit()
 
+    if cursor.rowcount == 1:
+        print("La inserción fue exitosa.")
+    else:
+        print("La inserción falló.")
+
+
+    query = ("SELECT * FROM `multiservicios`.`area`")
+    cursor.execute(query)
+
+# Imprimir los resultados de la consulta
+    print("Tabla actualizada:")
+    for fila in cursor:
+        print(fila)
+    
     cursor.close()
     conexion.close()
 
-ventana = crear_ventana()
-ventana.mainloop()        
+
+conectar()
+consultar_datos()
