@@ -19,10 +19,13 @@ class app:
         frame_fechas = tk.Frame(self.ventana, bd=0, width=100, height=100, relief=tk.SOLID, padx=10, pady=10, bg='red')
         frame_fechas.pack(side="top", expand=tk.NO, fill=tk.BOTH)
 
+        ##Frame Botones Principales
 
         frame_botonesP = tk.Frame(self.ventana, bd=0, width=500, height=100, relief=tk.SOLID, padx=10, pady=10, bg='blue')
         frame_botonesP.pack(side="left", expand=tk.NO, fill=tk.BOTH)
        
+        #Frames botones secundarios
+
         frame_botonesS = tk.Frame(self.ventana, bd=0, width=300, height=100, relief=tk.SOLID, padx=10, pady=10, bg='green')
         frame_botonesS.pack(side='right', expand=tk.NO, fill=tk.BOTH)
 
