@@ -23,7 +23,7 @@ class app:
 
         ##Frame para fechas importantes
 
-        frame_fechas = tk.Frame(self.ventana, bd=0, width=100, height=100, relief=tk.SOLID, padx=10, pady=10, bg='red')
+        frame_fechas = tk.Frame(self.ventana, bd=0, width=100, height=100, relief=tk.SOLID, padx=10, pady=10, bg='blue')
         frame_fechas.pack(side="top", expand=tk.NO, fill=tk.BOTH)
 
         ##Frame Botones Principales
