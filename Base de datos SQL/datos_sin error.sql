@@ -29,9 +29,9 @@ CREATE TABLE `Empleado` (
 );
 
 CREATE TABLE `Area` (
-  `Area_ID` INT,
+  `Area_ID` INT NOT NULL AUTO_INCREMENT,
   `Nombre_Area` VARCHAR(50),
-  `Porcentaje_comision` INT,
+  `Porcentaje_comision` FLOAT,
   PRIMARY KEY (`Area_ID`)
 );
 
