@@ -6,6 +6,8 @@ from SQL.funSQL import *
 
 
 def area():
+    cnx = conectarDB()
+
     ventana_area = tk.Toplevel()
     ventana_area.title("Orden de trabajo")
     ventana_area.geometry("450x250")
@@ -27,8 +29,18 @@ def area():
     ttk.Entry(formulario, textvariable = porcentaje).grid(column=1, row=1, padx=15, pady=15)
 
 
-    query = "INSERT INTO `multiservicios`.`area` (`Area_ID`, `Nombre_Area`, `Porcentaje_comision`) VALUES (%s, %s, %s)"
+    query = "INSERT INTO `multiservicios`.`area` (`Nombre_Area`, `Porcentaje_comision`) VALUES (%s, %s)"
 
-    ttk.Button(formulario, text = "Guardar", command=lambda: ejecutar_query(query, (1, nombre.get(), porcentaje.get()), "INSERT")).grid(column=1, row=2, padx=5, pady=5)
+    ttk.Button(formulario, text = "Guardar", command=lambda: ejecutar_query(cnx, query, (nombre.get(), porcentaje.get()), "INSERT")).grid(column=1, row=2, padx=5, pady=5)
 
+    def on_closing():
+        cnx.close()
+        if not cnx.is_connected():
+            print("La conexión se cerró correctamente.")
+        else:
+            print("La conexión aún está abierta.")
+        ventana_area.destroy()
+
+    ventana_area.protocol("WM_DELETE_WINDOW", on_closing)
+    
     return ventana_area.mainloop()
