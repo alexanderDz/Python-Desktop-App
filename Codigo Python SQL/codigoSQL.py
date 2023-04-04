@@ -1,9 +1,8 @@
 import mysql.connector
-import funSQL
+from funSQL import *
 
-cnx = funSQL.conectarDB()
+cnx = conectarDB()
 params = ("FRENOS Y SUSPENSION",0.15)
-query = "INSERT INTO `multiservicios`.`area` (`Nombre_Area`, `Porcentaje_comision`) VALUES (%s, %s)"
-id = funSQL.ejecutar_query(cnx,query,params,"INSERT")
+id = ejecutar_query(cnx,nueva_Area,params,"INSERT")
 print(id)
 cnx.close()

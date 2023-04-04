@@ -1,5 +1,13 @@
 import mysql.connector
 
+#LISTADO DE QUERIES PARA LAS FUNCIONES DE LAS VENTANAS
+
+#VENTANA AREA:
+nueva_Area = "INSERT INTO `multiservicios`.`area` (`Nombre_Area`, `Porcentaje_comision`) VALUES (%s, %s)"
+def actualizar_Area(Porcentaje_comision, Nombre_Area):
+    return "UPDATE `multiservicios`.`area` SET `Porcentaje_comision` = %s WHERE (`Nombre_Area` = %s)"
+
+#FUNCION PARA REALIZAR LA CONEXION DE LA BASE DE DATOS------------------------------------------------------------
 def conectarDB():
     try:
         cnx = mysql.connector.connect(
@@ -13,7 +21,7 @@ def conectarDB():
         return None
 
     return cnx
-
+#FUNCION PARA EJECUTAR LAS QUERIES ------------------------------------------------------------
 def ejecutar_query(cnx, query, params=None, query_type="SELECT"):
     try:
         cursor = cnx.cursor()
