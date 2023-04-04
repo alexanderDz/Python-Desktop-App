@@ -6,6 +6,8 @@ from screens.screen_master import masterPanel
 from forms.ordenTrabajo import abrir_orden_trabajo
 from forms.area import area
 from SQL.funSQL import *
+from forms.proveedores import proveedor
+from forms.empleados import abrir_empleado
 
 
 class app:
@@ -63,10 +65,10 @@ class app:
         boton3 = ttk.Button(frame_botonesS, text="Cotizaciones", style="Accent.TButton", width=25  )
         boton3.grid(row=2, column=0, padx=25, pady=15, sticky="nsew")
 
-        boton4 = ttk.Button(frame_botonesS, text="Empleados", style="Accent.TButton", width=25  )
+        boton4 = ttk.Button(frame_botonesS, text="Empleados", style="Accent.TButton", width=25, command=abrir_empleado)
         boton4.grid(row=3, column=0, padx=25, pady=15, sticky="nsew")
 
-        boton5 = ttk.Button(frame_botonesS, text="Proveedores", style="Accent.TButton", width=25  )
+        boton5 = ttk.Button(frame_botonesS, text="Proveedores", style="Accent.TButton", width=25, command=proveedor )
         boton5.grid(row=4, column=0, padx=25, pady=15, sticky="nsew")
 
         boton6 = ttk.Button(frame_botonesS, text="Areas", style="Accent.TButton", width=25, command=lambda: (area(), conectarDB()))
