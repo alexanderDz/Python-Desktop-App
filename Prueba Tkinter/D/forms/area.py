@@ -38,6 +38,7 @@ def area():
         else:
             mensajeDatos = ttk.Label(formulario, text="Informacion enviada")
         mensajeDatos.grid(column=1, row=3, padx=15, pady=5)
+
         nombre.set("")
         porcentaje.set("")
 
