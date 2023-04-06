@@ -8,7 +8,7 @@ from forms.area import area
 from SQL.funSQL import *
 from forms.proveedores import proveedor
 from forms.empleados import abrir_empleado
-
+from forms.cotizacion import cotizaciones
 
 class app:
     
@@ -62,7 +62,7 @@ class app:
         boton2 = ttk.Button(frame_botonesS, text="Remisiones", style="Accent.TButton", width=25  )
         boton2.grid(row=1, column=0, padx=25, pady=15, sticky="nsew")
 
-        boton3 = ttk.Button(frame_botonesS, text="Cotizaciones", style="Accent.TButton", width=25  )
+        boton3 = ttk.Button(frame_botonesS, text="Cotizaciones", style="Accent.TButton", width=25, command=cotizaciones)
         boton3.grid(row=2, column=0, padx=25, pady=15, sticky="nsew")
 
         boton4 = ttk.Button(frame_botonesS, text="Empleados", style="Accent.TButton", width=25, command=abrir_empleado)
