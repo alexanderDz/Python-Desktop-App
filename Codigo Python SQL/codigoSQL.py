@@ -2,7 +2,6 @@ import mysql.connector
 from funSQL import *
 
 cnx = conectarDB()
-params = ("FRENOS Y SUSPENSION",0.15)
-id = ejecutar_query(cnx,nueva_Area,params,"INSERT")
+id = actualizar_Area(cnx,0.5,"FRENOS Y SUSPENSION")
 print(id)
 cnx.close()
