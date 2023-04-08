@@ -48,6 +48,7 @@ def area():
         porcentaje.set("")
 
 
+
     ttk.Button(formulario, text = "Guardar", style="Accent.TButton", command=lambda: (ejecutar_query(query, (nombre.get(), porcentaje.get()), "INSERT"),mensaje())).grid(column=1, row=2, padx=5, pady=5)
     ttk.Button(formulario, text = "Actualizar", style="Accent.TButton").grid(column=0, row=2, padx=5, pady=5)
     return ventana_area.mainloop()
