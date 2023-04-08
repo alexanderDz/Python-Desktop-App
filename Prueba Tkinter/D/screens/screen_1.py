@@ -6,7 +6,9 @@ from screens.screen_master import masterPanel
 from forms.ordenTrabajo import abrir_orden_trabajo
 from forms.area import area
 from SQL.funSQL import *
-
+from forms.proveedores import proveedor
+from forms.empleados import abrir_empleado
+from forms.cotizacion import cotizaciones
 
 class app:
     
@@ -23,7 +25,7 @@ class app:
 
         ##Frame para fechas importantes
 
-        frame_fechas = tk.Frame(self.ventana, bd=0, width=100, height=100, relief=tk.SOLID, padx=10, pady=10, bg='red')
+        frame_fechas = tk.Frame(self.ventana, bd=0, width=100, height=100, relief=tk.SOLID, padx=10, pady=10, bg='blue')
         frame_fechas.pack(side="top", expand=tk.NO, fill=tk.BOTH)
 
         ##Frame Botones Principales
@@ -60,13 +62,13 @@ class app:
         boton2 = ttk.Button(frame_botonesS, text="Remisiones", style="Accent.TButton", width=25  )
         boton2.grid(row=1, column=0, padx=25, pady=15, sticky="nsew")
 
-        boton3 = ttk.Button(frame_botonesS, text="Cotizaciones", style="Accent.TButton", width=25  )
+        boton3 = ttk.Button(frame_botonesS, text="Cotizaciones", style="Accent.TButton", width=25, command=cotizaciones)
         boton3.grid(row=2, column=0, padx=25, pady=15, sticky="nsew")
 
-        boton4 = ttk.Button(frame_botonesS, text="Empleados", style="Accent.TButton", width=25  )
+        boton4 = ttk.Button(frame_botonesS, text="Empleados", style="Accent.TButton", width=25, command=abrir_empleado)
         boton4.grid(row=3, column=0, padx=25, pady=15, sticky="nsew")
 
-        boton5 = ttk.Button(frame_botonesS, text="Proveedores", style="Accent.TButton", width=25  )
+        boton5 = ttk.Button(frame_botonesS, text="Proveedores", style="Accent.TButton", width=25, command=proveedor )
         boton5.grid(row=4, column=0, padx=25, pady=15, sticky="nsew")
 
         boton6 = ttk.Button(frame_botonesS, text="Areas", style="Accent.TButton", width=25, command=lambda: (area(), conectarDB()))
